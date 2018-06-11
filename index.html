@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+//<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -18,9 +18,9 @@
               .attr("height",height)
 
     var projection = d3.geoAlbers()
-      .scale(width / 2 / Math.PI)
+      //.scale(width / 2 / Math.PI)
       //.scale(100)
-      .translate([width / 2, height / 2])
+      //.translate([width / 2, height / 2])
 
     var path = d3.geoPath()
       .projection(projection);
