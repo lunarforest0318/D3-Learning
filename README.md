@@ -1,4 +1,2 @@
 # D3-Learning
-lalala
-commit:lalala
-ABCDEFG
+D3 Learning
