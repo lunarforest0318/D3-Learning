@@ -33,5 +33,30 @@
       .attr("transform","translate(1000,500)rotate(-90)")
     })
 
+    d3.csv("SkiResort.csv", function(data) {
+      data.forEach(function(d){
+        d.Lat = +d.Lat;
+        d.Long = +d.Long
+      })
+
+
+      svg.selectAll("circle")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", function (data) {return 10 * data.Lat})
+      .attr("cy", function (data) {return 2 * data.Long})
+      .attr("r", function(data) {return 5; })
+      .attr("fill", "green");
+
+
+//     d3.csv("SkiResort.csv", function(d) {
+//  return {
+//    lat: +d.Lat
+//  };
+// }, function(error, d) {
+//  console.log(d[1]);
+ });
+
   </script>
 </body>
