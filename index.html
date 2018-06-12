@@ -17,9 +17,7 @@
 
     var projection = d3.geoAlbers()
       .scale(2000)
-      // .rotate(1,1)
       .translate([2600,1500])
-      // .translate([width / 2, height / 2])
 
     var path = d3.geoPath()
       .projection(projection);
@@ -29,7 +27,7 @@
       svg.selectAll("path").data(data.features)
       .enter().append("path")
       .attr("d", path)
-      .attr("fill","steelblue")
+      // .attr("fill","steelblue")
       .attr("transform","translate(1000,500)rotate(-90)")
     })
 
@@ -39,23 +37,18 @@
         d.Long = +d.Long
       })
 
-
       svg.selectAll("circle")
       .data(data)
       .enter()
       .append("circle")
-      .attr("cx", function (data) {return 10 * data.Lat})
-      .attr("cy", function (data) {return 2 * data.Long})
-      .attr("r", function(data) {return 5; })
-      .attr("fill", "green");
+      .attr("cx", function (data) {return projection([data.Long,data.Lat])[0]})
+      .attr("cy", function (data) {return projection([data.Long,data.Lat])[1]})
+      .attr("r", function(data) {return 3; })
+      .attr("fill", "orange")
+      .attr("transform","translate(1000,500)rotate(-90)");
 
+      // console.log(projection([data.Lat,data.Long]))
 
-//     d3.csv("SkiResort.csv", function(d) {
-//  return {
-//    lat: +d.Lat
-//  };
-// }, function(error, d) {
-//  console.log(d[1]);
  });
 
   </script>
